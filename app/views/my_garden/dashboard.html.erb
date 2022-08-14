@@ -6,8 +6,6 @@
     </div>
       <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-large-dashboard" %>
-      <% else %>
-        <img src="https://res.cloudinary.com/yian80413/image/upload/v1638457869/maruan_profile_wtr85w.jpg" alt="" class="avatar-large-dashboard">
       <% end %>
   </div>
 </div>
