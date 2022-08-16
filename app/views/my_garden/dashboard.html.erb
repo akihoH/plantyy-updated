@@ -40,8 +40,14 @@
                     <% days_since_watered.times do%>
                       <i style="filter:grayscale(1)" class="fas fa-tint"></i>
                     <% end %>
-                    <% (my_plant.plant.water.to_i - days_since_watered).times do%>
-                      <i class="fas fa-tint"></i>
+                    <% if days_since_watered < my_plant.plant.water.to_i %>
+                      <% (my_plant.plant.water.to_i).times do%>
+                        <i class="fas fa-tint"></i>
+                      <% end %>
+                    <% else %>
+                      <% (my_plant.plant.water.to_i - days_since_watered).times do%>
+                        <i class="fas fa-tint"></i>
+                      <% end %>
                     <% end %>
                     <%= link_to water_plant_path(my_plant), method: :patch do%>
                       <%= image_tag 'watering-can.png', class:"watering-can" %>
